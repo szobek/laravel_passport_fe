@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {AuthService} from '../auth.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +14,16 @@ export class LoginComponent implements OnInit {
   loginForm;
 
 
-  constructor(private auth: AuthService) {
-    console.log('src/app/login/login.component.ts:11 run login', auth);
-      auth.run();
+  constructor(private http: HttpClientModule, private h: HttpClient) {
+      this.h.post('http://jwt.test/oauth/token', {}, {})
+          .subscribe(
+              res => console.log
+          );
   }
   
   
   ngOnInit() {
-    console.log('src/app/login/login.component.ts:11 run login');
+    console.log('src/app/login/login.component.ts:11 run ngOnInit');
   }
 
 

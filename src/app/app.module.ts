@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import {AuthService} from './auth.service';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {AuthService} from './auth.service';
   ],
   imports: [
     BrowserModule,
+      HttpClientModule,
     AppRoutingModule
   ],
   providers: [AuthService],
